@@ -1,0 +1,258 @@
+{
+  "info": {
+    "_postman_id": "90a46190-a195-47b7-9c4e-6c0f00eb7560",
+    "name": "Task Management Hzm",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46565526",
+    "_collection_link": "https://go.postman.co/collection/46565526-90a46190-a195-47b7-9c4e-6c0f00eb7560?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Login Logout",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// http://localhost:8080/auth/register\r\n{\r\n    \"username\": \"Sham\",\r\n    \"password\": \"1224\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Local}}/auth/register",
+              "host": [
+                "{{Local}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// http://localhost:8080/auth/login\r\n{\r\n  \"Username\": \"Hazim\",\r\n  \"Password\": \"1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Local}}/auth/login",
+              "host": [
+                "{{Local}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJIYXppbSIsImlhdCI6MTc3MDcxNTc1NywiZXhwIjoxNzcwNzE5MzU3fQ.uyxLC9fqSnMKHXT0UOGGTSOfi8KxE6Q3o04JduM2PS4",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "// http://localhost:8080/auth/logout",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Local}}/auth/logout",
+              "host": [
+                "{{Local}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Task Management",
+      "item": [
+        {
+          "name": "Get Task",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJIYXppbSIsImlhdCI6MTc3MDcxNTg5MywiZXhwIjoxNzcwNzE5NDkzfQ.AiduXCiLt6q31HCnmXaPUiH7hBf-hPJMeqIIkrA9UbQ",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "// Get All Tasks available\r\n// http://localhost:8080/tasks\r\n\r\n// Get Task by ID\r\n// http://localhost:8080/tasks/1\r\n\r\n// Get Task by multiple ID\r\n// GET http://localhost:8080/tasks/view?ids=1,3,5",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Local}}/tasks/view?ids=3",
+              "host": [
+                "{{Local}}"
+              ],
+              "path": [
+                "tasks",
+                "view"
+              ],
+              "query": [
+                {
+                  "key": "ids",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Task",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJIYXppbSIsImlhdCI6MTc3MDcwNjQ4MCwiZXhwIjoxNzcwNzEwMDgwfQ.9lb3xwgWUpDra-pbkC-Bv7KJtMcOK1aXnr_HaaolVJA",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"Title\": \"\",\r\n  \"Description\": \"Ticket 02 must be done in this week\",\r\n  \"Status\": \"\",\r\n  \"Assigned To\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Local}}/tasks/create",
+              "host": [
+                "{{Local}}"
+              ],
+              "path": [
+                "tasks",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Task",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJIYXppbSIsImlhdCI6MTc3MDcxNDY3MywiZXhwIjoxNzcwNzE4MjczfQ.pUsSEXH2L_R0q_mejJw4Zd7GZ8RGv-QNs1MgboDTiBY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"Title\": \"Fix Bug #123\",\r\n  \"Description\": \"Critical bug must be fixed\",\r\n  \"Status\": \"2\",\r\n  \"Assigned To\": \"Wan\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Local}}/tasks/update/3",
+              "host": [
+                "{{Local}}"
+              ],
+              "path": [
+                "tasks",
+                "update",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Task",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJIYXppbSIsImlhdCI6MTc3MDcxNTg5MywiZXhwIjoxNzcwNzE5NDkzfQ.AiduXCiLt6q31HCnmXaPUiH7hBf-hPJMeqIIkrA9UbQ",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Local}}/tasks/delete/16",
+              "host": [
+                "{{Local}}"
+              ],
+              "path": [
+                "tasks",
+                "delete",
+                "16"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "Local",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
