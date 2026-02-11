@@ -38,7 +38,17 @@ mvn spring-boot:run
 
 Apps runs at http://localhost:8080
 
+## Testing with Postman
+
+A Postman collection is provided in the `postman` folder:
+
+- Import `Task Management Hzm.postman_collection.json` into Postman.
+- Use the **Login** request to obtain a JWT token.
+- Set the token in the environment variable `token`.
+- All other requests (create, update, view, delete, logout) will use this token automatically.
+
 ## Task APIs
+
 - Create Task:	POST	/tasks/create
 - Update Task:	PUT 	/tasks/update/{id}
 - View Task: 	GET 	/tasks (view all tasks)
