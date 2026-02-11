@@ -42,7 +42,7 @@ public class TaskController {
         return taskRepo.findAll();
     }
 
-    // Fetch task by ID (PK)
+    // Fetch task by ID 
     @GetMapping("/{id}")
     public ResponseEntity<?> getTaskById(@PathVariable Integer id) {
         return taskRepo.findById(id)
